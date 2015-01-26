@@ -66,19 +66,19 @@ static void main_window_load(Window *window){
 //build layers
   time_layer = text_layer_create(GRect(0, 55, 144, 50));
   text_layer_set_background_color(time_layer, GColorClear);
-  text_layer_set_text_color(time_layer, GColorBlack);
+  text_layer_set_text_color(time_layer, GColorClear);
   text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
   
-  date_layer = text_layer_create(GRect(0, 0, 50, 50));
+  date_layer = text_layer_create(GRect(5, 0, 50, 50));
   text_layer_set_background_color(date_layer, GColorClear);
-  text_layer_set_text_color(date_layer, GColorBlack);
+  text_layer_set_text_color(date_layer, GColorClear);
   text_layer_set_font(date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   text_layer_set_text_alignment(date_layer, GTextAlignmentLeft);
   
-  batt_layer = text_layer_create(GRect(70, 0, 144, 50));
+  batt_layer = text_layer_create(GRect(67, 150, 90, 50));
   text_layer_set_background_color(batt_layer, GColorClear);
-  text_layer_set_text_color(batt_layer, GColorBlack);
+  text_layer_set_text_color(batt_layer, GColorClear);
   text_layer_set_font(batt_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   text_layer_set_text_alignment(batt_layer, GTextAlignmentLeft);
   
@@ -117,6 +117,7 @@ static void tick_date_handler(struct tm *tick_time ,TimeUnits units_changed){
 static void init() {
   // Create main Window element and assign to pointer
   s_main_window = window_create();
+  window_set_background_color(s_main_window, GColorBlack);
 
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(s_main_window, (WindowHandlers) {
