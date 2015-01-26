@@ -1,0 +1,19 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "bbakerpkt@gmail.com",
+    "longName": "Time",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "shortName": "Time",
+    "uuid": "27b2c833-c9c3-45d1-80fd-c8cd9ca14cac",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
