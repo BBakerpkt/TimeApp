@@ -9,13 +9,13 @@
 // Setup
 //--------------------------
 static Window *s_main_window;
-TextLayer *time_layer;
-TextLayer *date_layer;
-TextLayer *batt_layer;
+static TextLayer *time_layer;
+static TextLayer *date_layer;
+static TextLayer *batt_layer;
 
-char datetext[] ="AAA ##";
-char timetext[] ="00:00";
-char batttext[] ="100% charged"; 
+static char datetext[] ="AAA ##";
+static char timetext[] ="00:00";
+static char batttext[] ="100% charged"; 
 
 //--------------------------
 // Update the time
@@ -67,6 +67,7 @@ static void main_window_load(Window *window){
   time_layer = text_layer_create(GRect(0, 55, 144, 50));
   text_layer_set_background_color(time_layer, GColorClear);
   text_layer_set_text_color(time_layer, GColorClear);
+  text_layer_set_text(time_layer, "00:00");
   text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
   
@@ -104,10 +105,6 @@ static void main_window_unload(Window *window){
 static void tick_handler(struct tm *tick_time ,TimeUnits units_changed){
   update_time();
   update_batt();
-}
-           
-//day ticker
-static void tick_date_handler(struct tm *tick_time ,TimeUnits units_changed){
   update_date();
 }
 
@@ -131,7 +128,6 @@ static void init() {
   
  // subscribe ticker
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
-  tick_timer_service_subscribe(DAY_UNIT, tick_date_handler);
 }
   
 static void deinit(){
